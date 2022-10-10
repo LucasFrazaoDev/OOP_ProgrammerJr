@@ -252,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -5.006, y: 0.000015259}
+  m_AnchoredPosition: {x: -5.006, y: 0}
   m_SizeDelta: {x: 390.227, y: 302.59}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &164471174
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 773291726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4147cd8859314834eada24a95d6f9bac, type: 3}
+  m_Script: {fileID: 11500000, guid: c7cf95ec5a36e81468b528800a085f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1100529567
@@ -1064,8 +1064,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 773291731}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ButtonStartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1629,8 +1629,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 773291731}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ButtonExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

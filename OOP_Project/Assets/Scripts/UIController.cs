@@ -28,4 +28,8 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    // Panel initial game
+
+    // Panel Game Over
 }

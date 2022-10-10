@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform firePoint;
+    private Rigidbody rig;
+    public float fireForce;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        rig = GetComponent<Rigidbody>();
+        rig.AddForce(Vector3.forward * fireForce * Time.deltaTime, ForceMode.Impulse);
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }
