@@ -19,7 +19,11 @@ public class SpawnManager : MonoBehaviour
     IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(3f);
-        Instantiate(enemiesPrefab[0], GenerateSpawnPosition(), enemiesPrefab[0].transform.rotation);
+        for (int i = 0; i < enemiesPrefab.Length; i++)
+        {
+            Instantiate(enemiesPrefab[i], GenerateSpawnPosition(), enemiesPrefab[i].transform.rotation);
+        }
+        
     }
 
     private Vector3 GenerateSpawnPosition()

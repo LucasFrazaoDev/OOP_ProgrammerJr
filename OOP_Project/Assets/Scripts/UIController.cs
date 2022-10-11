@@ -32,4 +32,8 @@ public class UIController : MonoBehaviour
     // Panel initial game
 
     // Panel Game Over
+    public void GameOver()
+    {
+
+    }
 }

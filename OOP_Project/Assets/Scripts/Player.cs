@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private Rigidbody rig;
     public GameObject projectilePrefab;
     public Transform firePoint;
+
+    public float health;
     [SerializeField] private float speed;
 
     // Start is called before the first frame update
