@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
 {
     public TextMeshProUGUI lifeText;
     public TextMeshProUGUI countdownText;
+    public TextMeshProUGUI gameOverText;
+    public GameObject panelGameOver;
 
     //public bool gameOn = true;
 
@@ -22,23 +24,37 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentTime = timeStart;
     }
 
     private void Update()
     {
-        // Countdown
-        currentTime -= Time.deltaTime;
-        countdownText.text = "Time left: " + currentTime.ToString("0");
-
-
-        // Life
-        lifeText.text = "Life: " + player.health.ToString();
-
-        if (player.health <= 0 || currentTime <= 0f)
+        // The conditional structure is only temporary to avoid console errors
+        // Maintenance needed in the future
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            GameOver();
+            // Countdown
+            currentTime -= Time.deltaTime;
+            countdownText.text = "Time left: " + currentTime.ToString("0");
+
+
+            // Life
+            lifeText.text = "Life: " + player.health.ToString();
+
+            if (player.health <= 0)
+            {
+                GameOver(1);
+            }
+            else if (currentTime <= 0f)
+            {
+                GameOver(2);
+            }
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -65,8 +81,26 @@ public class UIController : MonoBehaviour
     
 
     // Panel Game Over
-    public void GameOver()
+    public void GameOver(int textMensage)
     {
+        panelGameOver.SetActive(true);
+
+        switch (textMensage)
+        {
+            case 1:
+                gameOverText.text = "Que pena fulano, melhor sorte na próxima vez!";
+                break;
+
+            case 2:
+                gameOverText.text = "Parabens fulano, você venceu!";
+                break;
+        }
+
         Time.timeScale = 0f;
+    }
+
+    public void ButtonTryAgain()
+    {
+        SceneManager.LoadScene(1);
     }
 }

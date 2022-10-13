@@ -7,18 +7,19 @@ public class SpawnManager : MonoBehaviour
     public Transform spawnPoint;
     public GameObject[] enemiesPrefab;
 
-    public float spawnRangeX;
-    public float spawnRangeZ;
+    private float spawnRangeX = 20;
+    private float spawnRangeZ = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        InvokeRepeating("SpawnEnemy", 1f, Random.Range(2f, 5f));
+        //StartCoroutine(SpawnEnemy());
     }
 
-    IEnumerator SpawnEnemy()
+    private void SpawnEnemy()
     {
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
         for (int i = 0; i < enemiesPrefab.Length; i++)
         {
             Instantiate(enemiesPrefab[i], GenerateSpawnPosition(), enemiesPrefab[i].transform.rotation);

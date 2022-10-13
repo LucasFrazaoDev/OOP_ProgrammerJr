@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float damage;
+    [SerializeField] private float damage;
 
     [SerializeField] private float speed = 3f;
     private Rigidbody enemyRig;
@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void DamagePlayer(float dmg)
     {
-        Debug.Log("Peguei vc!");
         player.GetComponent<Player>().health -= dmg;
     }
 }
