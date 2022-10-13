@@ -28,13 +28,13 @@ public class Enemy : MonoBehaviour
     {
         if (target.gameObject.CompareTag("Player"))
         {
-            DamagePlayer();
+            DamagePlayer(damage);
         }
     }
 
-    protected virtual void DamagePlayer()
+    protected virtual void DamagePlayer(float dmg)
     {
         Debug.Log("Peguei vc!");
-        player.GetComponent<Player>().health -= 10;
+        player.GetComponent<Player>().health -= dmg;
     }
 }

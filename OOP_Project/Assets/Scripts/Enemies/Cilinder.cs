@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class Cilinder : Enemy
 {
-    //protected override void DamagePlayer()
-    //{
-
-    //}
+    
 }
