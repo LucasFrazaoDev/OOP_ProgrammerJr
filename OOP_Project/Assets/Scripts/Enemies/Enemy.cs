@@ -35,6 +35,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void DamagePlayer(float dmg)
     {
-        player.GetComponent<Player>().health -= dmg;
+        player.GetComponent<Player>().Health -= dmg;
     }
 }

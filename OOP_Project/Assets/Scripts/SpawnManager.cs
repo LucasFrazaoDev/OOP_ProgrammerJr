@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public Transform spawnPoint;
-    public GameObject[] enemiesPrefab;
-
     private float spawnRangeX = 20;
     private float spawnRangeZ = 2;
+
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject[] enemiesPrefab;
 
     // Start is called before the first frame update
     void Start()

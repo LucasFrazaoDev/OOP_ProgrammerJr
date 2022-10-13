@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject projectilePrefab;
-    public Transform firePoint;
+    
+    private float _health = 100f;
 
-    public float health;
     private Rigidbody rig;
     private float speed = 10;
+
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
+
+    public float Health
+    {
+        get => _health;
+        set => _health = value;
+    }
 
     // Start is called before the first frame update
     void Start()

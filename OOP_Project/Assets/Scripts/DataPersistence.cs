@@ -12,7 +12,11 @@ public class DataPersistence : MonoBehaviour
 
     [SerializeField] private TMP_InputField inputfieldName;
 
-    public string CurrentPlayer { get => _currentPlayer; set => _currentPlayer = value; }
+    public string CurrentPlayer
+    { 
+        get => _currentPlayer;
+        set => _currentPlayer = value;
+    }
 
 
     // Start is called before the first frame update
@@ -32,6 +36,13 @@ public class DataPersistence : MonoBehaviour
 
     public void SavePlayerName()
     {
-        CurrentPlayer = inputfieldName.text;
+        if (inputfieldName.text == "")
+        {
+            CurrentPlayer = "Stranger";
+        }
+        else
+        {
+            CurrentPlayer = inputfieldName.text;
+        }
     }
 }

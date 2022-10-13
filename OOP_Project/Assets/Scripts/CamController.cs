@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CamController : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offset;
-    public float sensitivity;
+    [SerializeField] private Transform player;
+    [SerializeField] private Vector3 offset;
 
     // Start is called before the first frame update
     void Start()

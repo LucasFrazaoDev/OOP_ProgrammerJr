@@ -41,9 +41,9 @@ public class UIController : MonoBehaviour
 
 
             // Life
-            lifeText.text = "Life: " + player.health.ToString();
+            lifeText.text = "Life: " + player.Health.ToString();
 
-            if (player.health <= 0)
+            if (player.Health <= 0)
             {
                 GameOver(1);
             }
@@ -89,11 +89,11 @@ public class UIController : MonoBehaviour
         switch (textMensage)
         {
             case 1:
-                gameOverText.text = "Que pena " + playerName +", melhor sorte na próxima vez!";
+                gameOverText.text = "Too bad " + playerName + ", better luck next time!";
                 break;
 
             case 2:
-                gameOverText.text = "Parabens " +playerName + ", você venceu!";
+                gameOverText.text = "Congratualtions " +playerName + ", you win!";
                 break;
         }
 
