@@ -8,8 +8,12 @@ public class DataPersistence : MonoBehaviour
 {
     public static DataPersistence Instance;
 
-    public TMP_InputField inputfieldName;
-    public string currentPlayer;
+    private string _currentPlayer;
+
+    [SerializeField] private TMP_InputField inputfieldName;
+
+    public string CurrentPlayer { get => _currentPlayer; set => _currentPlayer = value; }
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -28,6 +32,6 @@ public class DataPersistence : MonoBehaviour
 
     public void SavePlayerName()
     {
-        currentPlayer = inputfieldName.text;
+        CurrentPlayer = inputfieldName.text;
     }
 }

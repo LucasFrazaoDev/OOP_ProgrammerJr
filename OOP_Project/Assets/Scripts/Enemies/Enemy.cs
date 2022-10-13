@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float damage;
-
-    [SerializeField] private float speed = 3f;
     private Rigidbody enemyRig;
     private GameObject player;
+
+    [SerializeField] private float damage;
+    [SerializeField] private float speed = 3f;
+
     // Start is called before the first frame update
     void Start()
     {

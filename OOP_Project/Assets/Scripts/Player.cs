@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody rig;
     public GameObject projectilePrefab;
     public Transform firePoint;
 
     public float health;
-    [SerializeField] private float speed;
+    private Rigidbody rig;
+    private float speed = 10;
 
     // Start is called before the first frame update
     void Start()

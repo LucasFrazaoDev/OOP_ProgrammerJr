@@ -10,13 +10,12 @@ using UnityEditor;
 
 public class UIController : MonoBehaviour
 {
-    public TextMeshProUGUI lifeText;
-    public TextMeshProUGUI countdownText;
-    public TextMeshProUGUI gameOverText;
-    public GameObject panelGameOver;
+    [SerializeField] private TextMeshProUGUI lifeText;
+    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private GameObject panelGameOver;
 
-    //public bool gameOn = true;
-
+    private string playerName;
     private float timeStart = 30f;
     private float currentTime;
 
@@ -25,6 +24,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        playerName = DataPersistence.Instance.CurrentPlayer;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentTime = timeStart;
     }
@@ -61,6 +61,7 @@ public class UIController : MonoBehaviour
     #region MainMenu
     public void ButtonStartGame()
     {
+        DataPersistence.Instance.SavePlayerName();
         SceneManager.LoadScene(1);
     }
 
@@ -88,11 +89,11 @@ public class UIController : MonoBehaviour
         switch (textMensage)
         {
             case 1:
-                gameOverText.text = "Que pena fulano, melhor sorte na próxima vez!";
+                gameOverText.text = "Que pena " + playerName +", melhor sorte na próxima vez!";
                 break;
 
             case 2:
-                gameOverText.text = "Parabens fulano, você venceu!";
+                gameOverText.text = "Parabens " +playerName + ", você venceu!";
                 break;
         }
 
