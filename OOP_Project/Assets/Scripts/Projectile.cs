@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     {
         rig = GetComponent<Rigidbody>();
         rig.AddForce(Vector3.forward * fireForce * Time.deltaTime, ForceMode.Impulse);
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter(Collider target)

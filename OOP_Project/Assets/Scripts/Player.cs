@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
     private float _health = 100f;
-
+    private float speed = 200;
     private Rigidbody rig;
-    private float speed = 10;
 
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
@@ -28,18 +26,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        }
+        
     }
-
-    // Code clean later
 
     private void FixedUpdate()
     {
         float xMove = Input.GetAxisRaw("Horizontal");
         float zMove = Input.GetAxisRaw("Vertical");
-        rig.velocity = new Vector3(xMove * speed * Time.deltaTime, rig.velocity.y, zMove * speed * Time.deltaTime) * speed;
-    }
+
+        rig.velocity = new Vector3(xMove, rig.velocity.y, zMove) * speed * Time.deltaTime;
+
+        // Shoot
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        }
+    }   
 }
