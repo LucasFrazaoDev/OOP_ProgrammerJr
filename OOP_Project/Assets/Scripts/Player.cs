@@ -38,44 +38,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            MoveFoward();
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            MoveLeft();
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            MoveRight();
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            MoveBack();
-        }
-    }
-
-    private void MoveFoward()
-    {
-        rig.AddForce(Vector3.forward * speed * Time.deltaTime, ForceMode.Impulse);
-    }
-
-    private void MoveBack()
-    {
-        rig.AddForce(Vector3.forward * -speed * Time.deltaTime, ForceMode.Impulse);
-    }
-
-    private void MoveLeft()
-    {
-        rig.AddForce(Vector3.left * speed * Time.deltaTime, ForceMode.Impulse);
-    }
-
-    private void MoveRight()
-    {
-        rig.AddForce(Vector3.right * speed * Time.deltaTime, ForceMode.Impulse);
+        float xMove = Input.GetAxisRaw("Horizontal");
+        float zMove = Input.GetAxisRaw("Vertical");
+        rig.velocity = new Vector3(xMove * speed * Time.deltaTime, rig.velocity.y, zMove * speed * Time.deltaTime) * speed;
     }
 }
