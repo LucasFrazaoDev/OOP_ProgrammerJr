@@ -25,20 +25,21 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 1f;
         playerName = DataPersistence.Instance.CurrentPlayer;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentTime = timeStart;
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
     }
 
     private void Update()
     {
-        // The conditional structure is only temporary to avoid console errors
-        // Maintenance needed in the future
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             // Countdown
             currentTime -= Time.deltaTime;
             countdownText.text = "Time left: " + currentTime.ToString("0");
-
 
             // Life
             lifeText.text = "Life: " + player.Health.ToString();
@@ -51,10 +52,6 @@ public class UIController : MonoBehaviour
             {
                 GameOver(2);
             }
-        }
-        else
-        {
-            return;
         }
     }
 
@@ -93,7 +90,7 @@ public class UIController : MonoBehaviour
                 break;
 
             case 2:
-                gameOverText.text = "Congratualtions " +playerName + ", you win!";
+                gameOverText.text = "Congratulations " +playerName + ", you win!";
                 break;
         }
 
