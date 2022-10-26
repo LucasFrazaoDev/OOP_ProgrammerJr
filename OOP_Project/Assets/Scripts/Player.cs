@@ -23,12 +23,6 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         float xMove = Input.GetAxisRaw("Horizontal");

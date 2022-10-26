@@ -81,6 +81,7 @@ public class UIController : MonoBehaviour
     // Panel Game Over
     public void GameOver(int textMensage)
     {
+        lifeText.text = "Life: 0";
         panelGameOver.SetActive(true);
 
         switch (textMensage)

@@ -13,18 +13,15 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1f, Random.Range(2f, 5f));
-        //StartCoroutine(SpawnEnemy());
+        InvokeRepeating("SpawnEnemy", 1f, Random.Range(3f, 5f));
     }
 
     private void SpawnEnemy()
     {
-        //yield return new WaitForSeconds(3f);
         for (int i = 0; i < enemiesPrefab.Length; i++)
         {
             Instantiate(enemiesPrefab[i], GenerateSpawnPosition(), enemiesPrefab[i].transform.rotation);
         }
-        
     }
 
     private Vector3 GenerateSpawnPosition()
